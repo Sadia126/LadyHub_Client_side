@@ -13,28 +13,33 @@ import "./App.css";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [navHeight, setNavHeight] = useState(0); // Navbar height state
 
   return (
     <div className="min-h-screen bg-white">
       <Router>
-        <Navbar cart={cart} />
-        <div className="pt-20">
+        {/* Navbar sends its height */}
+        <Navbar cart={cart} onHeightChange={setNavHeight} />
+        
+        <div>
           <Routes>
             <Route
               path="/"
               element={
                 <>
-                  <Hero />
+                  {/* Hero now receives navHeight */}
+                  <Hero navbarHeight={navHeight} />
                   <ProductList cart={cart} setCart={setCart} />
                 </>
               }
             />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<CartPage cart={cart} />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/wishlist" element={<WishPage />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/wishlist" element={<WishPage />} />
           </Routes>
         </div>
+
         <Footer />
       </Router>
     </div>

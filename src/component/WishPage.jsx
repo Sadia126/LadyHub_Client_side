@@ -8,7 +8,7 @@ export default function WishlistPage() {
     return (
       <div className="flex flex-col items-center justify-center min-h-[70vh]">
         <h2 className="text-4xl font-semibold text-red-600">Your Wishlist Empaty 💔</h2>
-        <p className="text-blu-500 mt-2">Please Click Heart Icon To Added Wishlist
+        <p className="text-blue-400 text-2xl font-semibold mt-2">Please Click Heart Icon To Added Wishlist
 
 
         </p>

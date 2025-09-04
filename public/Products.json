@@ -11,7 +11,7 @@
     "sizes": ["S","M","L","XL"],
     "colors": ["Pink","Navy"],
     "stock": 24,
-    "images": ["images/dresses/floral-wrap-1.jpg","images/dresses/floral-wrap-2.jpg"]
+    "images": ["https://i.ibb.co.com/KzVHZrTd/image.png"]
   },
   {
     "id": "GH002",
@@ -25,7 +25,7 @@
     "sizes": ["M","L","XL"],
     "colors": ["Beige","Olive","Mustard"],
     "stock": 40,
-    "images": ["images/tops/casual-kurti-1.jpg"]
+    "images": ["https://i.ibb.co.com/7JcJqyGS/image.png"]
   },
   {
     "id": "GH003",
@@ -39,7 +39,7 @@
     "sizes": ["28","30","32","34"],
     "colors": ["Light Blue","Dark Blue"],
     "stock": 18,
-    "images": ["images/bottoms/mom-jeans-1.jpg","images/bottoms/mom-jeans-2.jpg"]
+    "images": ["https://i.ibb.co.com/ch4sNvxM/image.png"]
   },
   {
     "id": "GH004",
@@ -53,7 +53,7 @@
     "sizes": ["XS","S","M","L"],
     "colors": ["Black","Wine"],
     "stock": 30,
-    "images": ["images/tops/layered-top-1.jpg"]
+    "images": ["https://i.ibb.co.com/pvJPsm3t/image.png"]
   },
   {
     "id": "GH005",
@@ -67,7 +67,7 @@
     "sizes": ["One Size"],
     "colors": ["Cream","Mauve"],
     "stock": 15,
-    "images": ["images/outerwear/knit-cardigan-1.jpg"]
+    "images": ["https://i.ibb.co.com/1Yzf21t4/image.png"]
   },
   {
     "id": "GH006",
@@ -81,7 +81,7 @@
     "sizes": ["36","37","38","39","40"],
     "colors": ["White","Beige"],
     "stock": 27,
-    "images": ["images/footwear/sneakers-1.jpg","images/footwear/sneakers-2.jpg"]
+    "images": ["https://i.ibb.co.com/jZq6TPvx/image.png"]
   },
   {
     "id": "GH007",
@@ -94,7 +94,7 @@
     "reviews_count": 210,
     "colors": ["Tan","Black","Pink"],
     "stock": 35,
-    "images": ["images/accessories/crossbody-1.jpg"]
+    "images": ["https://i.ibb.co.com/v4k3Q166/image.png"]
   },
   {
     "id": "GH008",
@@ -108,7 +108,7 @@
     "sizes": ["S","M","L"],
     "colors": ["Khaki","Black"],
     "stock": 50,
-    "images": ["images/bottoms/cotton-shorts-1.jpg"]
+    "images": ["https://i.ibb.co.com/9H4V1DK6/image.png"]
   },
   {
     "id": "GH009",
@@ -121,7 +121,7 @@
     "reviews_count": 44,
     "colors": ["Floral","Abstract"],
     "stock": 65,
-    "images": ["images/accessories/silk-scarf-1.jpg"]
+    "images": ["https://i.ibb.co.com/9kZrtF4s/image.png"]
   },
   {
     "id": "GH010",
@@ -135,7 +135,7 @@
     "sizes": ["XS","S","M"],
     "colors": ["White","Black"],
     "stock": 42,
-    "images": ["images/tops/ribbed-tube-1.jpg"]
+    "images": ["https://i.ibb.co.com/QFkkyzBr/image.png"]
   },
   {
     "id": "GH031",
@@ -149,7 +149,7 @@
     "sizes": ["Free Size"],
     "colors": ["Red","Maroon","Gold"],
     "stock": 10,
-    "images": ["images/sarees/banarasi-silk-1.jpg","images/sarees/banarasi-silk-2.jpg"]
+    "images": ["https://i.ibb.co.com/qYFz1tp2/image.png"]
   },
   {
     "id": "GH032",
@@ -163,7 +163,7 @@
     "sizes": ["Free Size"],
     "colors": ["Beige","Sky Blue","Green"],
     "stock": 25,
-    "images": ["images/sarees/handloom-cotton-1.jpg","images/sarees/handloom-cotton-2.jpg"]
+    "images": ["https://i.ibb.co.com/hxTCxYGX/image.png"]
   },
   {
     "id": "GH033",
@@ -177,7 +177,7 @@
     "sizes": ["Free Size"],
     "colors": ["Pink","Purple","Orange"],
     "stock": 18,
-    "images": ["images/sarees/georgette-printed-1.jpg","images/sarees/georgette-printed-2.jpg"]
+    "images": ["https://i.ibb.co.com/FqgCSd0j/image.png"]
   },
   {
     "id": "GH034",
@@ -191,7 +191,7 @@
     "sizes": ["Free Size"],
     "colors": ["Peach","Coral"],
     "stock": 22,
-    "images": ["images/sarees/chiffon-embroidered-1.jpg"]
+    "images": ["https://i.ibb.co.com/F4hg6MMP/image.png"]
   },
   {
     "id": "GH035",
@@ -205,7 +205,7 @@
     "sizes": ["Free Size"],
     "colors": ["Blue","Silver"],
     "stock": 12,
-    "images": ["images/sarees/silk-blend-1.jpg","images/sarees/silk-blend-2.jpg"]
+    "images": ["https://i.ibb.co.com/27Dcnd88/image.png"]
   },
   {
     "id": "GH036",
@@ -219,7 +219,7 @@
     "sizes": ["Free Size"],
     "colors": ["Maroon","Gold"],
     "stock": 8,
-    "images": ["images/sarees/kanjeevaram-1.jpg","images/sarees/kanjeevaram-2.jpg"]
+    "images": ["https://i.ibb.co.com/20tqBmnC/image.png"]
   },
   {
     "id": "GH037",
@@ -233,7 +233,7 @@
     "sizes": ["Free Size"],
     "colors": ["Purple","Silver"],
     "stock": 15,
-    "images": ["images/sarees/net-party-1.jpg","images/sarees/net-party-2.jpg"]
+    "images": ["https://i.ibb.co.com/4gYf4Qmc/image.png"]
   },
   {
     "id": "GH038",
@@ -247,7 +247,7 @@
     "sizes": ["Free Size"],
     "colors": ["Red","Yellow","Green"],
     "stock": 20,
-    "images": ["images/sarees/designer-printed-1.jpg","images/sarees/designer-printed-2.jpg"]
+    "images": ["https://i.ibb.co.com/XxX6L7hm/image.png"]
   },
   {
     "id": "GH039",
@@ -261,7 +261,7 @@
     "sizes": ["Free Size"],
     "colors": ["Ivory","Gold"],
     "stock": 10,
-    "images": ["images/sarees/silk-jamdani-1.jpg","images/sarees/silk-jamdani-2.jpg"]
+    "images": ["https://i.ibb.co.com/5Wk2rKrx/image.png"]
   },
   {
     "id": "GH040",
@@ -275,6 +275,6 @@
     "sizes": ["Free Size"],
     "colors": ["Orange","Blue","Green"],
     "stock": 18,
-    "images": ["images/sarees/hand-painted-1.jpg","images/sarees/hand-painted-2.jpg"]
+    "images": ["https://i.ibb.co.com/6dc759x/image.png"]
   }
 ]

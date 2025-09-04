@@ -1,88 +1,102 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-const Hero = () => {
-  const slides = [
-    {
-      id: 1,
-      img: "https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp",
-      title: "Trendy Outfits for Every Girl",
-      desc: "Explore our latest fashion collection designed just for you.",
-      btn: "Shop Now",
-    },
-    {
-      id: 2,
-      img: "https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp",
-      title: "Discover Your Style",
-      desc: "From casual wear to party dresses — everything in one place.",
-      btn: "Explore",
-    },
-    {
-      id: 3,
-      img: "https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp",
-      title: "New Arrivals Every Week",
-      desc: "Stay ahead with our fresh and chic clothing collection.",
-      btn: "Browse",
-    },
-    {
-      id: 4,
-      img: "https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp",
-      title: "Upgrade Your Wardrobe",
-      desc: "Shop elegant, classy and comfortable outfits for all occasions.",
-      btn: "Get Started",
-    },
-  ];
+const slides = [
+  {
+    id: 1,
+    img: "/src/assets/girls.jpg",
+    title: "Trendy Outfits for Every Girl",
+    desc: "Explore our latest fashion collection designed just for you.",
+    btn: "Shop Now",
+  },
+  {
+    id: 2,
+    img: "/src/assets/shop.jpg",
+    title: "Discover Your Style",
+    desc: "From casual to classy, find outfits that match your vibe.",
+    btn: "Explore",
+  },
+  {
+    id: 3,
+    img: "/src/assets/fashion2.jpg",
+    title: "Feel Confident, Look Amazing",
+    desc: "Fashion that makes you stand out everywhere you go.",
+    btn: "Get Started",
+  },
+];
+
+const Hero = ({ navbarHeight }) => {
+  const [current, setCurrent] = useState(0);
+
+  const nextSlide = () =>
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  const prevSlide = () =>
+    setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="carousel w-full">
-        {slides.map((slide, index) => (
+    <div
+      className="relative w-full overflow-hidden"
+      style={{ marginTop: navbarHeight }} // 👈 Navbar height থেকে gap
+    >
+      <div
+        className="flex transition-transform duration-700"
+        style={{ transform: `translateX(-${current * 100}%)` }}
+      >
+        {slides.map((slide) => (
           <div
             key={slide.id}
-            id={`slide${slide.id}`}
-            className="carousel-item relative w-full"
+            className="relative w-full flex-shrink-0 h-[400px] lg:h-[500px]"
           >
-            {/* Background Image */}
             <img
               src={slide.img}
               alt={slide.title}
-              className="w-full h-[calc(100vh-80px)] object-cover"
+              className="w-full h-full object-cover"
             />
-
-            {/* Glass Overlay with Text */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-white/20 backdrop-blur-md rounded-xl p-6 md:p-10 max-w-lg text-center text-white shadow-lg">
-                <h2 className="text-2xl text-blue-200 md:text-4xl font-bold mb-3">
-                  {slide.title}
-                </h2>
-                <p className="mb-5 text-sm  text-blue-200 md:text-base">{slide.desc}</p>
-                <button className="bg-blue-400 hover:bg-blue-300 text-white px-6 py-2 rounded-lg shadow-md">
-                  {slide.btn}
-                </button>
-              </div>
-            </div>
-
-            {/* Controls */}
-            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-              <a
-                href={`#slide${
-                  index === 0 ? slides.length : slides[index - 1].id
-                }`}
-                className="btn btn-circle"
+            {/* Glass effect overlay */}
+            <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-center text-white p-6">
+              <motion.h2
+                key={slide.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-2xl lg:text-4xl font-bold mb-2"
               >
-                ❮
-              </a>
-              <a
-                href={`#slide${
-                  index === slides.length - 1 ? 1 : slides[index + 1].id
-                }`}
-                className="btn btn-circle"
+                {slide.title}
+              </motion.h2>
+              <motion.p
+                key={slide.desc}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-base lg:text-lg mb-4"
               >
-                ❯
-              </a>
+                {slide.desc}
+              </motion.p>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-6 py-2 rounded-2xl bg-blue-400 font-semibold text-white shadow-lg"
+              >
+                {slide.btn}
+              </motion.button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute top-1/2 left-4 -translate-y-1/2 bg-white/50 p-2 rounded-full"
+      >
+        ◀
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute top-1/2 right-4 -translate-y-1/2 bg-white/50 p-2 rounded-full"
+      >
+        ▶
+      </button>
     </div>
   );
 };

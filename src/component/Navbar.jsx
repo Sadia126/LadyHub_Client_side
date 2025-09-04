@@ -1,39 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BsCartCheckFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
-import { IoMenu,IoClose } from "react-icons/io5";
+import { IoMenu, IoClose } from "react-icons/io5";
 import { Heart } from "lucide-react";
 import { useWishlist } from "./WishLish";
 
-const Navbar = ({ cart }) => {
+const Navbar = ({ cart, onHeightChange }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const navRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
+
+    if (navRef.current && onHeightChange) {
+      onHeightChange(navRef.current.offsetHeight);
+    }
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [onHeightChange]);
 
   const cartCount = cart ? cart.length : 0;
-   const { wishlist } = useWishlist();
+  const { wishlist } = useWishlist();
 
   return (
     <nav
+      ref={navRef}
       className={`fixed top-0 min-w-full z-30 transition-colors duration-300 ${
         scrolled
-          ? "bg-white/25  backdrop-blur-sm shadow-md"
+          ? "bg-white/25 backdrop-blur-sm shadow-md"
           : "bg-white"
       }`}
     >
       <div className="flex justify-between items-center px-4 md:px-8 h-16">
         {/* Logo */}
-        <div>
-          <Link to="/" className="text-2xl font-bold text-cyan-950">
-            GirlsHub
-          </Link>
-        </div>
+        <Link to="/" className="text-2xl font-bold text-cyan-950">
+          GirlsHub
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6">
@@ -46,26 +51,30 @@ const Navbar = ({ cart }) => {
           >
             About
           </Link>
-          <Link to="/contact" className="text-black font-medium hover:text-blue-700">
-  Contact Us
-</Link>
-<Link to="/wishlist" className="relative">
-          <Heart className="w-6 h-6 text-blue-400 hover:text-red-500" 
-          fill="currentColor"/>
-          {wishlist.length > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
-              {wishlist.length}
-            </span>
-          )}
-        </Link>
-
+          <Link
+            to="/contact"
+            className="text-black font-medium hover:text-blue-700"
+          >
+            Contact Us
+          </Link>
+          <Link to="/wishlist" className="relative">
+            <Heart
+              className="w-6 h-6 text-blue-400 hover:text-red-500"
+              fill="currentColor"
+            />
+            {wishlist.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                {wishlist.length}
+              </span>
+            )}
+          </Link>
         </div>
 
-        {/* Right side: Cart + Hamburger */}
+        {/* Right side */}
         <div className="flex items-center gap-4">
           {/* Cart Icon */}
           <button
-            className=" relative"
+            className="relative"
             onClick={() => navigate("/cart")}
           >
             <BsCartCheckFill className="text-4xl text-cyan-950" />
@@ -76,20 +85,27 @@ const Navbar = ({ cart }) => {
             )}
           </button>
 
+          {/* Wishlist (mobile) */}
+          <Link to="/wishlist" className="relative sm:hidden">
+            <Heart className="w-6 h-6 text-blue-500" fill="currentColor" />
+            {wishlist.length > 0 && (
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                {wishlist.length}
+              </span>
+            )}
+          </Link>
+
           {/* Hamburger for mobile */}
-    
-
-<button
-  className="md:hidden rounded-lg mr-3.5"
-  onClick={() => setMenuOpen(!menuOpen)}
->
-  {menuOpen ? (
-    <IoClose className="text-gray-900 text-4xl" />
-  ) : (
-    <IoMenu className="text-gray-900 text-4xl" />
-  )}
-</button>
-
+          <button
+            className="md:hidden rounded-lg mr-3.5"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? (
+              <IoClose className="text-gray-900 text-4xl" />
+            ) : (
+              <IoMenu className="text-gray-900 text-4xl" />
+            )}
+          </button>
         </div>
       </div>
 

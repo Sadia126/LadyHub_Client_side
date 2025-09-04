@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
-import products from "../../public/Products.json";
 import ProductDetailsModal from "./ProductDetailsModal";
 import { useLocation } from "react-router-dom";
 import { useWishlist } from "./WishLish";
@@ -9,6 +8,16 @@ import { Heart } from "lucide-react";
 const ProductList = ({ cart = [], setCart }) => {
   const [search, setSearch] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [products, setProducts] = useState([]); // JSON theke data load hobe
+
+  // JSON file fetch
+  useEffect(() => {
+    fetch("/Products.json") // public folder er file ke root theke access korte hobe
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error("Error loading products:", err));
+  }, []);
+  console.log(products)
 
   const addToCart = (product) => {
     if (!cart.find((item) => item.id === product.id)) {
@@ -113,7 +122,7 @@ const ProductList = ({ cart = [], setCart }) => {
                 <Heart
                   size={24}
                   className={isInWishlist ? "text-blue-400" : "text-blue-300"}
-                   fill="currentColor"
+                  fill="currentColor"
                 />
               </button>
             </div>
