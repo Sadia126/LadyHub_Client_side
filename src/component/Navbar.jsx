@@ -1,15 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { BsCartCheckFill } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { Heart } from "lucide-react";
 import { useWishlist } from "./WishLish";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = ({ cart, onHeightChange }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const navRef = useRef(null);
+
+  const { user, logout } = useContext(AuthContext);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -29,9 +32,7 @@ const Navbar = ({ cart, onHeightChange }) => {
     <nav
       ref={navRef}
       className={`fixed top-0 min-w-full z-30 transition-colors duration-300 ${
-        scrolled
-          ? "bg-white/25 backdrop-blur-sm shadow-md"
-          : "bg-white"
+        scrolled ? "bg-white/25 backdrop-blur-sm shadow-md" : "bg-white"
       }`}
     >
       <div className="flex justify-between items-center px-4 md:px-8 h-16">
@@ -94,6 +95,27 @@ const Navbar = ({ cart, onHeightChange }) => {
               </span>
             )}
           </Link>
+
+          {/* 🔹 Auth Section */}
+       {user ? (
+  <div className="flex items-center gap-3">
+    <img
+      src={user.photoURL}
+      alt={user.displayName || "User"}
+      className="w-10 h-10 rounded-full border-2 border-cyan-700 cursor-pointer"
+      title={user.displayName || "User"}
+      onClick={logout}
+    />
+  </div>
+) : (
+  <button
+    onClick={() => navigate("/login")}   // ✅ redirect instead of direct login
+    className="px-4 py-2 bg-cyan-700 text-white rounded-xl hover:bg-cyan-900 transition"
+  >
+    Login
+  </button>
+)}
+
 
           {/* Hamburger for mobile */}
           <button

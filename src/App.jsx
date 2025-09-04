@@ -10,6 +10,9 @@ import ContactUs from "./component/Contact";
 import WishPage from "./component/WishPage";
 import "./index.css";
 import "./App.css";
+import Login from "./component/login";
+import { Toaster } from "react-hot-toast";
+import AuthProvider from "./Provider/AuthProvider";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -17,7 +20,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Router>
+     <AuthProvider>
+       <Router>
         {/* Navbar sends its height */}
         <Navbar cart={cart} onHeightChange={setNavHeight} />
         
@@ -34,6 +38,7 @@ function App() {
               }
             />
             <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login/>} />
             <Route path="/cart" element={<CartPage cart={cart} />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/wishlist" element={<WishPage />} />
@@ -41,7 +46,9 @@ function App() {
         </div>
 
         <Footer />
+        <Toaster></Toaster>
       </Router>
+     </AuthProvider>
     </div>
   );
 }

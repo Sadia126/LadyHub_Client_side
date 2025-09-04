@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -36,7 +37,7 @@ const Hero = ({ navbarHeight }) => {
   return (
     <div
       className="relative w-full overflow-hidden"
-      style={{ marginTop: navbarHeight }} // 👈 Navbar height থেকে gap
+      style={{ marginTop: navbarHeight }} //  Navbar height থেকে gap
     >
       <div
         className="flex transition-transform duration-700"
